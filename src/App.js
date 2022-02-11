@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
 
 function App() {
@@ -8,11 +8,16 @@ function App() {
   }
 
   class Clock extends React.Component{
+    constructor(props) {
+      super(props)
+      this.state = {date: new Date(), name:name}
+
+    }
     render () {
     return  (
       <div>
-      <h1>Hello, {this.props.name.firstname}. </h1>
-      <p> It is {this.props.date.toLocaleTimeString()} </p>
+      <h1>Hello, {this.state.name.firstname}. </h1>
+      <p> It is {this.state.date.toLocaleTimeString()} </p>
       </div>
         )
       }
@@ -27,7 +32,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-      <Clock date={new Date()}  name={name}/>
+      <Clock />
       </header>
     </div>
   );
